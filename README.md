@@ -42,3 +42,10 @@ sin scroll horizontal, sin errores de consola, foco visible sobre papel y navy.
 
 ## Publicación
 https://gmc-global.github.io/kosmostic-prototype/ · GitHub Pages, rama `main`.
+
+## Propuesta alternativa: Bold v2 "Gradientes" (`bold.html`)
+- Display **Bebas Neue**, texto **Jost** (geométrica minimalista tipo Century Gothic).
+- Lienzo índigo profundo con **gradientes azules** (`#1D4ED8→#38C6FF`) y **lilas encendidos** (`#7C3AED→#E879F9`).
+- Los colores secundarios actúan como **separadores en gradiente** (hairlines `border-image`) en toda la página.
+- Sin verde. Banda de ahorro como bloque de gradiente completo con la cifra 80%.
+- Fotografía de apoyo generada: `assets/fiber.webp` (fibra óptica violeta) y `assets/team.webp` (equipo con luz azul/púrpura), más las piezas originales en duotono violeta.
