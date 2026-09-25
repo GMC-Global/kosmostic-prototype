@@ -2,4 +2,6 @@ node_modules/
 shots/
 assets/datacenter.png
 assets/support.png
+assets/cand-*.png
+assets/logo-white.png
 verify.js

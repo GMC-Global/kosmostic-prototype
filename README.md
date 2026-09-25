@@ -24,14 +24,15 @@ Las imágenes se sirven en WebP (compresión 82%); los PNG originales de 2K qued
 
 Costo total Magnific: 610 créditos (2 imágenes a 75 + 1 clip a 460; el primer intento del clip falló sin costo).
 
-## Sistema de diseño
+## Sistema de diseño (v2, cosmic minimal)
 
-- **Tema:** oscuro cósmico en toda la página (theme lock). Fondo `#05070f`.
-- **Marca:** gradiente único cian `#22d3ee` → azul `#3b82f6` → violeta `#8b5cf6` (accent lock), anclado al azul del logo oficial.
-- **Tipografía:** Audiowide (display), Space Grotesk (texto), JetBrains Mono (etiquetas/datos).
-- **Formas (regla global):** botones pill, tarjetas 20px, inputs 12px.
-- **Movimiento:** reveals con IntersectionObserver, contadores, marquee único, auroras CSS en `transform`.
-  Todo colapsa con `prefers-reduced-motion`. Sin listeners de scroll.
+- **Tema:** oscuro en toda la página (theme lock). Fondo `#07080d`.
+- **Acento único:** gradiente cian → azul → violeta, usado con moderación (palabra del hero, botón primario, focus, iconos).
+- **Tipografía:** Space Grotesk (display y texto), JetBrains Mono (etiquetas y datos). Sin fuentes decorativas.
+- **Formas (regla global):** botones pill, tarjetas 20px, inputs 12px. Bordes hairline en vez de fondos cargados.
+- **Logo:** versión oficial del sitio (disco azul marino con wordmark plateado) sobre fondo oscuro, sin placas ni recoloreos.
+- **Movimiento:** reveals con IntersectionObserver, contadores, auroras CSS suaves en `transform`.
+  Todo colapsa con `prefers-reduced-motion`. Sin listeners de scroll. El contenido nunca depende de la animación para ser visible.
 
 ## Accesibilidad
 
