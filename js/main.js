@@ -96,6 +96,27 @@
     }
   }
 
+  /* ---------- Theme switch (dark ⇄ light "Nieve") ---------- */
+  var themeBtn = document.getElementById("theme-switch");
+
+  function syncThemeBtn() {
+    if (!themeBtn) return;
+    var isLight = document.documentElement.classList.contains("theme-light");
+    themeBtn.textContent = isLight ? "Ver versión oscura" : "Ver versión clara";
+    themeBtn.setAttribute("aria-pressed", String(isLight));
+  }
+
+  if (themeBtn) {
+    syncThemeBtn();
+    themeBtn.addEventListener("click", function () {
+      var isLight = document.documentElement.classList.toggle("theme-light");
+      try {
+        localStorage.setItem("kmt-theme", isLight ? "light" : "dark");
+      } catch (e) { /* storage unavailable: theme still applies for this view */ }
+      syncThemeBtn();
+    });
+  }
+
   /* ---------- Contact form (inline validation + status states) ---------- */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");

@@ -10,6 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    (function () {
+      var t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("kmt-theme");
+      if (t === "light") document.documentElement.classList.add("theme-light");
+    })();
+  </script>
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
 <body>
@@ -312,7 +318,9 @@
       </div>
     </div>
     <div class="container footer__bottom">
-      <p>© 2026 KosmosTIC - CLIL. Todos los derechos reservados.</p>
+      <p>© 2026 KosmosTIC - CLIL. Todos los derechos reservados.
+        <button class="theme-switch" id="theme-switch" type="button">Ver versión clara</button>
+      </p>
     </div>
   </footer>
 
