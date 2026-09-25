@@ -703,6 +703,107 @@ html.anim .reveal.in { opacity: 1; transform: translateY(0); }
   .respaldo__grid, .about__grid, .field-row, .footer__grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- Tema "en blanco" (opt-in: html.theme-light) ----------
+   Invierte fondos y tipografías. Los gradientes azul/lila se mantienen
+   como acentos; los de texto se oscurecen un paso para AA sobre blanco. */
+html.theme-light {
+  --bg: #ffffff;
+  --bg-2: #f6f7fb;
+  --panel: #f2f3f9;
+  --darkest: #ebeef5;
+  --text: #141220;
+  --text-soft: #55526b;
+  --accent: #1d4ed8;
+  --glow: #6d28d9;
+  --line: rgba(20, 18, 32, 0.1);
+  --line-strong: rgba(20, 18, 32, 0.24);
+}
+html.theme-light .grad-text,
+html.theme-light .hero__accent,
+html.theme-light .stat__num {
+  background: linear-gradient(120deg, #1d4ed8 0%, #5b21b6 55%, #9333ea 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+html.theme-light .nav { background: rgba(255, 255, 255, 0.85); }
+html.theme-light .nav__links > a:not(.btn):hover { color: var(--text); }
+html.theme-light .nav__links { background: rgba(255, 255, 255, 0.98); }
+
+/* Hero en blanco: video como textura muy tenue */
+html.theme-light .hero { background: var(--bg); }
+html.theme-light .hero__video { opacity: 0.13; }
+html.theme-light .hero__scrim {
+  background:
+    radial-gradient(90% 70% at 85% 30%, rgba(124, 58, 237, 0.12), transparent 60%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94) 18%, rgba(255, 255, 255, 0.62) 100%),
+    linear-gradient(0deg, var(--bg) 3%, rgba(255, 255, 255, 0) 38%);
+}
+html.theme-light .btn--outline-light {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+html.theme-light .btn--outline-light:hover { border-color: var(--glow); }
+html.theme-light .btn--primary { box-shadow: 0 12px 32px rgba(29, 78, 216, 0.22); }
+html.theme-light .btn--green { box-shadow: 0 12px 32px rgba(124, 58, 237, 0.22); }
+
+/* Respaldo en blanco: foto como textura tenue */
+html.theme-light .respaldo { background: var(--bg); }
+html.theme-light .respaldo__media img { opacity: 0.12; }
+html.theme-light .respaldo__scrim {
+  background:
+    radial-gradient(80% 90% at 20% 20%, rgba(46, 139, 255, 0.1), transparent 60%),
+    linear-gradient(100deg, rgba(255, 255, 255, 0.92) 30%, rgba(255, 255, 255, 0.7) 100%);
+}
+
+/* Ahorro: panel claro con cifra en gradiente */
+html.theme-light .savings {
+  background: var(--bg-2);
+  border-block: 1px solid var(--line);
+}
+html.theme-light .savings::before {
+  background: radial-gradient(70% 90% at 85% 20%, rgba(147, 51, 234, 0.1), transparent 60%);
+}
+html.theme-light .savings__num {
+  color: transparent;
+  background: linear-gradient(120deg, #1d4ed8 0%, #5b21b6 55%, #9333ea 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: none;
+}
+html.theme-light .savings__title { color: var(--text); }
+html.theme-light .savings__body { color: var(--text-soft); }
+html.theme-light .kicker--ink { color: var(--glow); }
+
+/* Formulario y detalles */
+html.theme-light .contact__form { background: var(--panel); }
+html.theme-light .field input,
+html.theme-light .field textarea {
+  background: #ffffff;
+}
+html.theme-light .field input::placeholder,
+html.theme-light .field textarea::placeholder { color: rgba(85, 82, 107, 0.6); }
+html.theme-light .field__error { color: #b91c1c; }
+html.theme-light .form__status { color: var(--glow); }
+html.theme-light .index__row:hover { background: rgba(29, 78, 216, 0.05); }
+
+/* Topbar y footer claros */
+html.theme-light .topbar { color: var(--text-soft); }
+html.theme-light .footer { color: var(--text-soft); }
+
+.theme-switch {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: var(--s3);
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+.theme-switch:hover { border-image: var(--grad-mix) 1; border-bottom: 1px solid; }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

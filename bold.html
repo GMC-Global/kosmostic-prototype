@@ -10,6 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/bold.css" />
+  <script>
+    (function () {
+      var t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("kmt-bold-theme");
+      if (t === "light") document.documentElement.classList.add("theme-light");
+    })();
+  </script>
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
 <body class="bold-world">
@@ -326,7 +332,9 @@
       </div>
     </div>
     <div class="container footer__bottom">
-      <p>© 2026 KosmosTIC - CLIL. Todos los derechos reservados. <a class="footer__alt" href="index.html">Ver propuesta Atlas</a></p>
+      <p>© 2026 KosmosTIC - CLIL. Todos los derechos reservados. <a class="footer__alt" href="index.html">Ver propuesta Atlas</a>
+        <button class="theme-switch" id="theme-switch" type="button">Ver versión en blanco</button>
+      </p>
     </div>
   </footer>
 

@@ -97,6 +97,27 @@
     }
   }
 
+  /* ---------- Theme switch (Bold oscuro ⇄ en blanco) ---------- */
+  var themeBtn = document.getElementById("theme-switch");
+
+  function syncThemeBtn() {
+    if (!themeBtn) return;
+    var isLight = document.documentElement.classList.contains("theme-light");
+    themeBtn.textContent = isLight ? "Ver versión Bold" : "Ver versión en blanco";
+    themeBtn.setAttribute("aria-pressed", String(isLight));
+  }
+
+  if (themeBtn) {
+    syncThemeBtn();
+    themeBtn.addEventListener("click", function () {
+      var isLight = document.documentElement.classList.toggle("theme-light");
+      try {
+        localStorage.setItem("kmt-bold-theme", isLight ? "light" : "dark");
+      } catch (e) { /* storage unavailable: theme still applies for this view */ }
+      syncThemeBtn();
+    });
+  }
+
   /* ---------- Formulario de contacto ---------- */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");

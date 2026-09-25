@@ -49,3 +49,4 @@ https://gmc-global.github.io/kosmostic-prototype/ · GitHub Pages, rama `main`.
 - Los colores secundarios actúan como **separadores en gradiente** (hairlines `border-image`) en toda la página.
 - Sin verde. Banda de ahorro como bloque de gradiente completo con la cifra 80%.
 - Fotografía de apoyo generada: `assets/fiber.webp` (fibra óptica violeta) y `assets/team.webp` (equipo con luz azul/púrpura), más las piezas originales en duotono violeta.
+- **Tema "en blanco"** (`bold.html?theme=light`): invierte fondos y tipografías; los gradientes se oscurecen un paso para AA sobre blanco. Toggle en el footer.
