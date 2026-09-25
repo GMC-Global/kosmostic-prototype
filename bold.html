@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KosmosTIC | Tu empresa nunca deja de comunicarse</title>
+  <title>KosmosTIC | Propuesta Bold</title>
   <meta name="description" content="Telefonía IP, SMS y voz en la nube con atención inmediata. Hasta 80% menos en tu factura telefónica. KosmosTIC, tu respaldo operativo en telecomunicaciones." />
   <link rel="icon" type="image/png" href="assets/logo-emblem.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bold.css" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
-<body>
+<body class="bold-world">
   <a class="skip-link" href="#content">Saltar al contenido</a>
 
   <!-- ===== Utility bar ===== -->
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <!-- ===== Masthead / navigation ===== -->
+  <!-- ===== Nav ===== -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a class="nav__brand" href="#inicio" aria-label="KosmosTIC, inicio">
@@ -55,28 +55,26 @@
   </header>
 
   <main id="content">
-    <!-- ===== Hero ===== -->
+    <!-- ===== Hero (bloque tinta + video cósmico a baja opacidad) ===== -->
     <section class="hero" id="inicio">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="kicker reveal">Telecomunicaciones en la nube</p>
-          <h1 class="hero__title reveal">Tu empresa nunca deja de <span class="mark">comunicarse</span>.</h1>
-          <p class="hero__sub reveal">Telefonía IP, SMS y voz en la nube con atención inmediata. Hasta 80% menos en tu factura telefónica.</p>
-          <div class="hero__actions reveal">
-            <a class="btn btn--primary" href="#contacto">Hablar con un experto</a>
-            <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
-          </div>
+      <div class="hero__media" aria-hidden="true">
+        <video class="hero__video" autoplay muted loop playsinline>
+          <source src="assets/hero-cosmos.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__scrim"></div>
+      </div>
+      <div class="container hero__inner">
+        <p class="kicker reveal">Telecomunicaciones en la nube</p>
+        <h1 class="hero__title reveal">Tu empresa nunca deja de <span class="hero__accent">comunicarse</span>.</h1>
+        <p class="hero__sub reveal">Telefonía IP, SMS y voz en la nube con atención inmediata. Hasta 80% menos en tu factura telefónica.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--green" href="#contacto">Hablar con un experto</a>
+          <a class="btn btn--outline-light" href="#servicios">Ver servicios</a>
         </div>
-        <figure class="hero__figure reveal">
-          <div class="duo">
-            <img src="assets/support.webp" alt="Profesional de KosmosTIC atendiendo a un cliente con diadema" />
-          </div>
-          <figcaption>Atención experta, con sentido humano.</figcaption>
-        </figure>
       </div>
     </section>
 
-    <!-- ===== Proof band ===== -->
+    <!-- ===== Proof band (bloque azul a sangre) ===== -->
     <section class="proof" aria-label="Cifras clave">
       <div class="container proof__grid">
         <div class="stat reveal">
@@ -172,7 +170,7 @@
 
           <aside class="services__aside reveal">
             <figure>
-              <div class="duo">
+              <div class="duo duo--blue">
                 <img src="assets/datacenter.webp" alt="Centro de datos en la nube" loading="lazy" />
               </div>
               <figcaption>
@@ -185,28 +183,32 @@
       </div>
     </section>
 
-    <!-- ===== Respaldo ===== -->
-    <section class="section respaldo" id="respaldo">
+    <!-- ===== Respaldo (bloque tinta + foto humana) ===== -->
+    <section class="respaldo" id="respaldo">
+      <div class="respaldo__media" aria-hidden="true">
+        <img src="assets/support.webp" alt="" loading="lazy" />
+        <div class="respaldo__scrim"></div>
+      </div>
       <div class="container">
-        <h2 class="respaldo__title reveal">No somos un proveedor.<br />Somos tu <span class="mark">respaldo operativo</span>.</h2>
+        <h2 class="respaldo__title reveal">No somos un proveedor.<br />Somos tu <span class="hero__accent">respaldo operativo</span>.</h2>
         <div class="respaldo__grid">
           <article class="respaldo__item reveal">
-            <p class="kicker">Atención</p>
+            <p class="kicker kicker--green">Atención</p>
             <h3>Atención inmediata</h3>
             <p>Un equipo organizado que recibe, diagnostica y resuelve con agilidad, para que tu negocio nunca se detenga.</p>
           </article>
           <article class="respaldo__item reveal">
-            <p class="kicker">Continuidad</p>
+            <p class="kicker kicker--green">Continuidad</p>
             <h3>Disponibilidad y continuidad</h3>
             <p>Un sistema estable, seguro y sin caídas, cuidado desde la conexión con proveedores hasta la calidad del audio.</p>
           </article>
           <article class="respaldo__item reveal">
-            <p class="kicker">Transparencia</p>
+            <p class="kicker kicker--green">Transparencia</p>
             <h3>Transparencia y adaptabilidad</h3>
             <p>Reportes precisos que demuestran la realidad del servicio y respuestas rápidas a tus necesidades.</p>
           </article>
           <article class="respaldo__item reveal">
-            <p class="kicker">Experticia</p>
+            <p class="kicker kicker--green">Experticia</p>
             <h3>Experticia con sentido humano</h3>
             <p>Un equipo certificado, empático y capacitado en tecnología y en servicio, que te acompaña en cada paso.</p>
           </article>
@@ -214,16 +216,10 @@
       </div>
     </section>
 
-    <!-- ===== Ahorro (banda navy) ===== -->
+    <!-- ===== Ahorro (bloque verde a sangre) ===== -->
     <section class="savings" id="ahorro">
-      <div class="savings__media" aria-hidden="true">
-        <video class="savings__bg" autoplay muted loop playsinline>
-          <source src="assets/hero-cosmos.mp4" type="video/mp4" />
-        </video>
-        <div class="savings__scrim"></div>
-      </div>
       <div class="container savings__inner">
-        <p class="kicker kicker--light reveal">El ahorro es real</p>
+        <p class="kicker kicker--ink reveal">El ahorro es real</p>
         <p class="savings__num reveal"><span class="counter" data-target="80" data-suffix="%">80%</span></p>
         <h2 class="savings__title reveal">menos en tu factura telefónica.</h2>
         <p class="savings__body reveal">Migra tu tráfico de voz a nuestra infraestructura SIP y paga solo una fracción de lo que pagas hoy. Sin trucos. Sin letra pequeña.</p>
@@ -298,7 +294,7 @@
     </section>
   </main>
 
-  <!-- ===== Footer (banda navy) ===== -->
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
@@ -323,7 +319,7 @@
       </div>
     </div>
     <div class="container footer__bottom">
-      <p>© 2026 KosmosTIC - CLIL. Todos los derechos reservados. <a class="footer__alt" href="bold.html">Ver propuesta Bold</a></p>
+      <p>© 2026 KosmosTIC - CLIL. Todos los derechos reservados. <a class="footer__alt" href="index.html">Ver propuesta Atlas</a></p>
     </div>
   </footer>
 
