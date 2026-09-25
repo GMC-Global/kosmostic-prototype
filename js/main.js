@@ -1,13 +1,14 @@
-/* KosmosTIC prototype interactions
-   Rules: no window scroll listeners, transform/opacity animation only,
-   all motion collapses under prefers-reduced-motion. */
+/* KosmosTIC — Atlas. Interacciones.
+   Sin listeners de scroll; animaciones solo en transform/opacity;
+   todo colapsa con prefers-reduced-motion. El contenido es visible
+   por defecto (la clase html.anim activa los reveals). */
 
 (function () {
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Mobile nav ---------- */
+  /* ---------- Menú móvil ---------- */
   var toggle = document.getElementById("nav-toggle");
   var links = document.getElementById("nav-links");
 
@@ -34,7 +35,7 @@
     });
   }
 
-  /* ---------- Scroll reveals ---------- */
+  /* ---------- Reveals al entrar en viewport ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
@@ -54,7 +55,7 @@
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   }
 
-  /* ---------- Animated counters (feedback for key figures) ---------- */
+  /* ---------- Conteo de cifras ---------- */
   var counters = Array.prototype.slice.call(document.querySelectorAll(".counter"));
 
   function formatCounter(el, value) {
@@ -67,7 +68,7 @@
     var target = parseInt(el.getAttribute("data-target"), 10) || 0;
     if (reduceMotion) { formatCounter(el, target); return; }
 
-    var duration = 1400;
+    var duration = 1100;
     var start = null;
 
     function step(ts) {
@@ -96,28 +97,7 @@
     }
   }
 
-  /* ---------- Theme switch (dark ⇄ light "Nieve") ---------- */
-  var themeBtn = document.getElementById("theme-switch");
-
-  function syncThemeBtn() {
-    if (!themeBtn) return;
-    var isLight = document.documentElement.classList.contains("theme-light");
-    themeBtn.textContent = isLight ? "Ver versión oscura" : "Ver versión clara";
-    themeBtn.setAttribute("aria-pressed", String(isLight));
-  }
-
-  if (themeBtn) {
-    syncThemeBtn();
-    themeBtn.addEventListener("click", function () {
-      var isLight = document.documentElement.classList.toggle("theme-light");
-      try {
-        localStorage.setItem("kmt-theme", isLight ? "light" : "dark");
-      } catch (e) { /* storage unavailable: theme still applies for this view */ }
-      syncThemeBtn();
-    });
-  }
-
-  /* ---------- Contact form (inline validation + status states) ---------- */
+  /* ---------- Formulario de contacto ---------- */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
 
@@ -125,6 +105,10 @@
     var err = document.getElementById(errId);
     if (err) err.hidden = !show;
     input.setAttribute("aria-invalid", show ? "true" : "false");
+  }
+
+  function validEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
   }
 
   if (form) {
@@ -141,7 +125,7 @@
       setError(nombre, "err-nombre", nombreBad);
       invalid = invalid || nombreBad;
 
-      var emailBad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      var emailBad = !validEmail(email.value);
       setError(email, "err-email", emailBad);
       invalid = invalid || emailBad;
 
@@ -171,7 +155,7 @@
       var t = e.target;
       if (t.getAttribute("aria-invalid") === "true") {
         if (t.id === "f-nombre") setError(t, "err-nombre", t.value.trim() === "");
-        if (t.id === "f-email") setError(t, "err-email", !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t.value.trim()));
+        if (t.id === "f-email") setError(t, "err-email", !validEmail(t.value));
         if (t.id === "f-msg") setError(t, "err-msg", t.value.trim() === "");
       }
     });

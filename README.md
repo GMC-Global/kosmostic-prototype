@@ -1,53 +1,44 @@
-# KosmosTIC - Prototipo de rediseño (cosmic)
+# KosmosTIC — Prototipo "Atlas" (broadsheet técnico)
 
-Prototipo estático de una propuesta radicalmente distinta para kosmostic.com.
-Contenido reconstruido del sitio real; único activo conservado: el logo oficial.
+Prototipo estático del rediseño de kosmostic.com, creado con el proceso **impeccable**:
+contexto de producto en `PRODUCT.md`, mundo visual sustituto en `DESIGN.md`, construcción
+completa y QA por lotes (desktop + móvil) con Playwright.
+
+Contenido reconstruido del sitio real; único activo de marca: el logo oficial de KosmosTIC.
 
 ## Estructura
 
 ```
-index.html          Página única (landing completa en español)
-css/styles.css      Sistema de diseño cósmico (tokens, estados, responsive)
-js/main.js          Interacciones (menú, reveals, contadores, formulario)
-assets/             Logo oficial + imágenes y video generados con Magnific
+PRODUCT.md          Verdad del producto, hechos y restricciones
+DESIGN.md           Mundo visual "Atlas" (tokens, tipografía, anti-referencia)
+index.html          Landing única en español (modo Persuade)
+css/styles.css      Sistema de diseño Atlas
+js/main.js          Menú, reveals, contadores, validación de formulario
+assets/             Logo oficial + fotografía y video generados con Magnific
+verify.js           Script QA de Playwright (no se publica)
 ```
 
-## Assets generados (Magnific)
+## Mundo visual "Atlas"
+- Papel `#FAFAFA`, tinta navy `#0B1F3F`, acento azul eléctrico `#1257FF`, señal cian `#00B8D9` sobre navy.
+- Tipografía: **Archivo** (display), **IBM Plex Sans** (texto), **IBM Plex Mono** (etiquetas).
+- Retículas de hairline, composiciones asimétricas 7/5 y 8/4, fotografía en duotono navy.
+- Radios: botones e inputs 6px; paneles 0px (cajas de hairline). Sin sombras negras.
+- Movimiento sobrio (reveals de 8px, conteos); todo colapsa con `prefers-reduced-motion`.
 
+## Activos generados (Magnific, 610 créditos)
 | Asset | Modelo | Uso |
 |---|---|---|
-| `assets/datacenter.webp` | Seedream 5 Pro (2K, 3:2) | Celda principal de servicios y poster del hero |
-| `assets/support.webp` | Seedream 5 Pro (2K, 3:2) | Bloque "respaldo operativo" (sentido humano) |
-| `assets/hero-cosmos.mp4` | MiniMax H3 (Hailuo 3.0, 768p, 5s) | Fondo animado del hero |
-
-Las imágenes se sirven en WebP (compresión 82%); los PNG originales de 2K quedan fuera del repositorio.
-
-Costo total Magnific: 610 créditos (2 imágenes a 75 + 1 clip a 460; el primer intento del clip falló sin costo).
-
-## Sistema de diseño (v2, cosmic minimal)
-
-- **Tema:** oscuro en toda la página (theme lock). Fondo `#07080d`.
-- **Acento único:** gradiente cian → azul → violeta, usado con moderación (palabra del hero, botón primario, focus, iconos).
-- **Tipografía:** Space Grotesk (display y texto), JetBrains Mono (etiquetas y datos). Sin fuentes decorativas.
-- **Formas (regla global):** botones pill, tarjetas 20px, inputs 12px. Bordes hairline en vez de fondos cargados.
-- **Logo:** versión oficial del sitio (disco azul marino con wordmark plateado) sobre fondo oscuro, sin placas ni recoloreos.
-- **Movimiento:** reveals con IntersectionObserver, contadores, auroras CSS suaves en `transform`.
-  Todo colapsa con `prefers-reduced-motion`. Sin listeners de scroll. El contenido nunca depende de la animación para ser visible.
-
-## Accesibilidad
-
-- Contraste WCAG AA en textos y botones (texto blanco sobre gradiente azul-violeta ≥ 4.5:1).
-- Focus visible cian 2px, skip link, labels visibles sobre inputs, errores inline por campo.
-- Navegación por teclado completa; menú móvil con `aria-expanded` y cierre con Escape.
+| `assets/support.webp` / `support.png` | Seedream 5 Pro (2K) | Hero (duotono) |
+| `assets/datacenter.webp` / `datacenter.png` | Seedream 5 Pro (2K) | Panel lateral de servicios (duotono) |
+| `assets/hero-cosmos.mp4` | MiniMax H3 768p, 5s | Textura de fondo de la banda de ahorro |
 
 ## Verificación
-
-Servir la carpeta con cualquier servidor estático:
-
 ```
-python -m http.server 8787
-# → http://localhost:8787
+python -m http.server 8787   # http://localhost:8787
+node verify.js               # Playwright: desktop 1440x900 + móvil 390x844
 ```
+QA ejecutado: hero en 2 líneas (desktop), reveals activos, video reproduciéndose,
+sin scroll horizontal, sin errores de consola, foco visible sobre papel y navy.
 
-Comprobado con Playwright (Chromium) en escritorio (1440x900) y móvil (390x844):
-hero con video, bento responsive, formulario con validación y contraste AA.
+## Publicación
+https://gmc-global.github.io/kosmostic-prototype/ · GitHub Pages, rama `main`.
